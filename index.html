@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriTrack - Mockup</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="app-header">
+    <h1>NutriTrack</h1>
+
+    <p>
+        Monitorizează alimentația și activitatea fizică într-un singur loc.
+    </p>
+
+    <p class="app-count">
+        3 înregistrări, dintre care 2 active
+    </p>
+</header>
+
+
+<main class="container">
+
+    <section class="panel">
+
+        <h2>Adaugă o înregistrare</h2>
+
+        <form class="item-form">
+
+            <label for="entry-name">
+                Nume
+                <input
+                        type="text"
+                        id="entry-name"
+                        name="name"
+                        placeholder="Ex: Morning Run"
+                >
+            </label>
+
+            <label for="entry-type">
+                Tip
+                <select id="entry-type" name="type">
+                    <option value="meal">Masă</option>
+                    <option value="activity">Activitate</option>
+                </select>
+            </label>
+
+            <button type="submit">
+                Adaugă
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <section class="panel">
+
+        <h2>Înregistrările mele</h2>
+
+        <ul class="item-list">
+
+            <li class="item-card done">
+
+                <div>
+                    <h3>Greek Yogurt Breakfast</h3>
+
+                    <span class="badge badge-meal">
+                        Masă
+                    </span>
+
+                    <p class="item-details">
+                        Mic dejun · 420 kcal
+                    </p>
+                </div>
+
+                <span class="status">
+                    Finalizat
+                </span>
+
+            </li>
+
+
+            <li class="item-card">
+
+                <div>
+                    <h3>Morning Run</h3>
+
+                    <span class="badge badge-activity">
+                        Activitate
+                    </span>
+
+                    <p class="item-details">
+                        Cardio · 320 kcal arse
+                    </p>
+                </div>
+
+                <span class="status">
+                    Activ
+                </span>
+
+            </li>
+
+
+            <li class="item-card">
+
+                <div>
+                    <h3>Vegetable Pasta Lunch</h3>
+
+                    <span class="badge badge-meal">
+                        Masă
+                    </span>
+
+                    <p class="item-details">
+                        Prânz · 650 kcal
+                    </p>
+                </div>
+
+                <span class="status">
+                    Activ
+                </span>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+</main>
+
+
+<footer class="app-footer">
+    Proiect Tehnologii Web · NutriTrack
+</footer>
+
+</body>
+
+</html>
