@@ -33,7 +33,7 @@ body {
 
 .app-header {
     background: var(--accent);
-    color: white;
+    color: var(--text-on-accent);
     text-align: center;
     padding: 28px 16px;
 }
@@ -113,7 +113,7 @@ body {
     border-radius: 8px;
 
     background: var(--accent);
-    color: white;
+    color: var(--text-on-accent);
 
     font: inherit;
     font-weight: 600;
@@ -180,7 +180,7 @@ body {
 
     border-radius: 999px;
 
-    color: white;
+    color: var(--text-on-accent);
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -245,6 +245,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --text-on-accent: #ffffff;
         --bg: #121816;
         --card: #1a2420;
         --text: #e5e7eb;
