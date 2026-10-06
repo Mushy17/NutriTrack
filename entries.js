@@ -49,6 +49,10 @@ function searchByName(list, text) {
     );
 }
 
+function findById(list, id) {
+    return list.find((entry) => entry.id === id);
+}
+
 function nextId(list) {
     return list.reduce(
         (max, entry) => Math.max(max, entry.id),
@@ -114,6 +118,7 @@ console.log("--- Reading ---");
 
 console.log("Names:", listNames(entries).join(", "));
 console.log("Active:", countActive(entries));
+console.log("Entry with id 2:", findById(entries, 2).name);
 console.log(
     "Search 'run':",
     listNames(searchByName(entries, "run")).join(", ")
