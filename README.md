@@ -60,10 +60,24 @@ No build step or server is required for Stage 1.
 
 Details per stage will be documented in the `ai-log/` folder.
 
+## Stage 2: data logic
+
+Plain JavaScript, no DOM. `entries.js` contains the NutriTrack data array and the functions used to read and modify the data.
+
+The implemented operations include:
+- listing entry names;
+- counting active entries;
+- searching entries by name;
+- adding entries with validation;
+- toggling the completed state;
+- deleting entries.
+
+All operations are implemented without modifying the original array. Results and validation messages are printed in the browser console (F12).
+
 ## Status
 
 - [x] Stage 1: static mockup
-- [ ] Stage 2: data logic in JavaScript
+- [x] Stage 2: data logic in JavaScript
 - [ ] Stage 3: React initialization
 - [ ] Later stages: interaction, API, server, database, authentication and Docker
 
