@@ -175,3 +175,17 @@ The React application is located in the `frontend/` directory, while the origina
 ### Next Steps
 
 Stage 4 will replace the JSON representation with reusable React components and introduce user interactions.
+
+
+## Stage 3 checklist
+
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S3-R1 | `npm run dev` starts without errors | [package.json](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/package.json) | Run `npm install` and `npm run dev` from `frontend/` |
+| S3-R2 | App name and counters are computed from data | [App.jsx - calculations](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L34-L48) | Change the entries array and verify the updated counters |
+| S3-R3 | Application uses NutriTrack sample data from README | [App.jsx - sample data](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L1-L32) | Compare the three entries with the README sample data |
+| S3-R4 | Stage 1 styles are reused in React | [App.css](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.css) | Compare the React interface with the original mockup |
+| S3-R5 | `node_modules` is ignored and production build passes | [.gitignore](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/.gitignore) | Verify ignored folders and run `npm run build` |
+| S3-R6 | README Stage 3 section and AI log are completed | [README.md](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/README.md), [ai-log/etapa-03.md](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/ai-log/etapa-03.md) | Read the Stage 3 documentation and AI log |
+| S3-R7 | Stage 3 implementation commit is published on GitHub | [Stage 3 commit](https://github.com/Mushy17/NutriTrack/commit/ad41e3565c4ef87e1ea583bd5667254d5dd70f36) | Check the commit in GitHub history |
+
