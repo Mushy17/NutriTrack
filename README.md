@@ -46,11 +46,43 @@ The following sample entries will be used throughout the project:
 NutriTrack will also include a separate custom recipes module.
 Users will be able to create recipes with ingredients, quantities and nutritional information and later use saved recipes when adding meals to their daily nutrition log.
 
+
 ## How to run
 
-Open `index.html` directly in a modern web browser.
+### Stage 1 and 2 - Static Mockup
 
-No build step or server is required for Stage 1.
+Open `mockup/index.html` directly in a modern web browser.
+
+No build step or server is required for the static mockup.
+
+### Stage 3 - React Application
+
+The current NutriTrack application is built with React and Vite.
+
+Requirements:
+- Node.js
+- npm
+
+From the project root, run:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open the local URL displayed in the terminal, usually:
+
+http://localhost:5173/
+
+To create a production build, run:
+
+```bash
+npm run build
+```
+
+The generated files are stored in `frontend/dist/`.
+
 
 ## AI usage
 
@@ -78,8 +110,9 @@ All operations are implemented without modifying the original array. Results and
 
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
-- [ ] Stage 3: React initialization
-- [ ] Later stages: interaction, API, server, database, authentication and Docker
+- [x] Stage 3: React initialization
+- [ ] Stage 4: React components and interaction
+- [ ] Later stages: API, server, database, authentication and Docker
 
 ## Stage 1 checklist
 
@@ -105,3 +138,40 @@ All operations are implemented without modifying the original array. Results and
 | S2-R5 | Adding an entry does not modify the original array | [immutable add](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L84-L95), [immutability test](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L123-L134) | Check that the new list has 4 entries while the original `entries` array still has 3 |
 | S2-R6 | README contains the Stage 2 description and the Stage 2 AI log is documented | [README.md](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/README.md#L56-L68), [ai-log/etapa-02.md](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/ai-log/etapa-02.md#L1-L36) | Read the Stage 2 documentation and AI usage log |
 | S2-R7 | Stage 2 implementation commit is pushed to GitHub | [Stage 2 commit](https://github.com/Mushy17/NutriTrack/commit/3c463b0) | Check the `Stage 2: data logic in JavaScript` commit in the repository history |
+
+
+
+## Stage 3: Vite and React Project
+
+NutriTrack has been migrated from a static HTML/CSS application to a React application initialized with Vite.
+
+The React application is located in the `frontend/` directory, while the original files from Stages 1 and 2 are preserved in `mockup/`.
+
+### Implemented features
+
+- Initialized the React project using Vite and ESLint.
+- Installed the required dependencies using npm.
+- Removed the default Vite demonstration files.
+- Reused the custom NutriTrack CSS design from Stage 1.
+- Migrated the entries array from Stage 2 into `App.jsx`.
+- Implemented dynamically calculated dashboard statistics:
+   - Total entries
+   - Active entries
+   - Calories consumed
+   - Calories burned
+- Displayed the entries as formatted JSON using `JSON.stringify()`.
+- Successfully tested the development server with `npm run dev`.
+- Successfully verified the production build with `npm run build`.
+
+### Project Structure
+
+- `mockup/` - Original HTML, CSS and JavaScript files.
+- `frontend/` - React application created with Vite.
+- `frontend/src/App.jsx` - Main React component and entry data.
+- `frontend/src/App.css` - Reused NutriTrack styles.
+- `frontend/src/main.jsx` - React application entry point.
+- `ai-log/` - AI assistance documentation.
+
+### Next Steps
+
+Stage 4 will replace the JSON representation with reusable React components and introduce user interactions.
