@@ -1,4 +1,4 @@
-import EntryList from "./components/EntryList.jsx";
+import EntryList from "./Components/EntryList.jsx";
 
 const entries = [
   {
