@@ -111,9 +111,9 @@ All operations are implemented without modifying the original array. Results and
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: React initialization
-- [ ] Stage 4: React components and interaction
+- [x] Stage 4: components rendered from data
+- [ ] Stage 5: local state and events
 - [ ] Later stages: API, server, database, authentication and Docker
-
 ## Stage 1 checklist
 
 | ID | Requirement | Where | How to check |
@@ -188,4 +188,54 @@ Stage 4 will replace the JSON representation with reusable React components and 
 | S3-R5 | `node_modules` is ignored and production build passes | [.gitignore](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/.gitignore) | Verify ignored folders and run `npm run build` |
 | S3-R6 | README Stage 3 section and AI log are completed | [README.md](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/README.md), [ai-log/etapa-03.md](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/ai-log/etapa-03.md) | Read the Stage 3 documentation and AI log |
 | S3-R7 | Stage 3 implementation commit is published on GitHub | [Stage 3 commit](https://github.com/Mushy17/NutriTrack/commit/ad41e3565c4ef87e1ea583bd5667254d5dd70f36) | Check the commit in GitHub history |
+
+
+## Stage 4: Components Rendered from Data
+
+In Stage 4, the JSON representation from Stage 3 was replaced with reusable React components that dynamically render NutriTrack entries.
+
+### Implemented Features
+
+- Created `EntryCard.jsx` to display a single nutrition or activity entry.
+- Created `EntryList.jsx` to render the entire entries array.
+- Used React props to pass data between components.
+- Used `map()` to generate entry cards dynamically.
+- Used `key={entry.id}` to uniquely identify each rendered card.
+- Implemented conditional rendering for an empty list.
+- Displayed different visual styles for active and completed entries.
+- Preserved the custom NutriTrack design from Stage 1.
+
+### React Components
+
+- `EntryCard` receives a single entry through props and displays its name, type, category, calories and completion status.
+- `EntryList` receives the entire entries array and renders one `EntryCard` component for each entry.
+
+### Testing
+
+The following tests were completed successfully:
+
+- Verified that all three sample entries render correctly.
+- Verified that an empty array displays the appropriate message.
+- Verified that dashboard statistics update when the array is empty.
+- Verified that changing an entry's completion status updates its appearance.
+- Verified that the browser console contains no React warnings or errors.
+- Successfully executed `npm run build` and `npm run lint`.
+
+### Next Steps
+
+Stage 5 will introduce React local state and event handling to make the entries interactive.
+
+
+## Stage 4 checklist
+
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S4-R1 | At least two reusable components in `src/Components/` | [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx), [EntryList.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx) | Open both component files and verify that each exports a React component |
+| S4-R2 | Entry card receives data through props | [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L27-L53) | Verify that `EntryCard` receives `entry` through props and displays its fields |
+| S4-R3 | List uses `map()` and `key={entry.id}` without React warnings | [EntryList.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L12-L22) | Open the browser console and verify that the cards render without React warnings |
+| S4-R4 | Empty list displays an explicit message | [EntryList.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L4-L10) | Temporarily set the entries array to `[]` and verify the message "No entries available." |
+| S4-R5 | Completion status changes the card appearance | [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L27-L53) | Change an entry's `completed` value and verify the card styling and status |
+| S4-R6 | README Stage 4 section and AI log are completed | [README.md](https://github.com/Mushy17/NutriTrack/blob/DOCUMENTATION_COMMIT_HASH/README.md), [ai-log/etapa-04.md](https://github.com/Mushy17/NutriTrack/blob/DOCUMENTATION_COMMIT_HASH/ai-log/etapa-04.md) | Read the Stage 4 documentation and AI usage log |
+| S4-R7 | Stage 4 implementation commit is published on GitHub | [Stage 4 commit](https://github.com/Mushy17/NutriTrack/commit/b4b19523dd40d69eb28a7197755c2cfd28fbf98f) | Check the Stage 4 implementation commit in the GitHub history |
+
 
