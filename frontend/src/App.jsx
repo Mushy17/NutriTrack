@@ -1,3 +1,5 @@
+import EntryList from "./components/EntryList.jsx";
+
 const entries = [
   {
     id: 1,
@@ -95,23 +97,28 @@ function App() {
             </div>
           </section>
 
+
           <section className="panel entries-panel">
-            <div className="panel-header">
+            <div className="entries-header">
               <div>
-                <h2>Entries Overview</h2>
-                <p>
-                  {totalEntries} entries • {activeEntries} active
-                </p>
+                <p className="section-label">TODAY</p>
+                <h2>Today's entries</h2>
               </div>
+
+              <span className="entries-count">
+      {totalEntries} entries · {activeEntries} active
+    </span>
             </div>
 
-            <pre className="entries-json">
-                        {JSON.stringify(entries, null, 2)}
-                    </pre>
+            <EntryList entries={entries} />
           </section>
+
         </main>
       </>
   );
+
 }
 
+
 export default App;
+
