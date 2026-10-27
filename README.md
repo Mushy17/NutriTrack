@@ -92,6 +92,17 @@ The generated files are stored in `frontend/dist/`.
 
 Details per stage will be documented in the `ai-log/` folder.
 
+| ID | Requirement | Evidence (exact code lines) | How to check |
+|---|---|---|---|
+| S1-R1 | README: description, fields, sample data, how to run | [Description](https://github.com/Mushy17/NutriTrack/blob/9bfdae98ca8a085e4fd442a2aaf4fb36b1041fa2/README.md#L1-L4), [Data model](https://github.com/Mushy17/NutriTrack/blob/9bfdae98ca8a085e4fd442a2aaf4fb36b1041fa2/README.md#L5-L17), [Sample data](https://github.com/Mushy17/NutriTrack/blob/9bfdae98ca8a085e4fd442a2aaf4fb36b1041fa2/README.md#L18-L38), [How to run](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/README.md#L44-L48) | Read the project description, data model, sample entries and instructions for opening the static mockup. |
+| S1-R2 | AI usage section | [README.md – AI usage](https://github.com/Mushy17/NutriTrack/blob/9bfdae98ca8a085e4fd442a2aaf4fb36b1041fa2/README.md#L49-L55) | Verify that AI support is documented in the README. |
+| S1-R3 | AI log for Stage 1 | [ai-log/etapa-01.md](https://github.com/Mushy17/NutriTrack/blob/7612b52/ai-log/etapa-01.md#L1-L33) | Read the Stage 1 AI log and the documented prompts and decisions. |
+| S1-R4 | Header, form with text field and fixed list, three project-specific cards | [Header](https://github.com/Mushy17/NutriTrack/blob/7612b52/index.html#L15-L25), [Form](https://github.com/Mushy17/NutriTrack/blob/7612b52/index.html#L31-L55), [Three entries](https://github.com/Mushy17/NutriTrack/blob/7612b52/index.html#L61-L125) | Open the original Stage 1 index.html and inspect the structure and sample entries. |
+| S1-R5 | Completed card has a distinct appearance | [Completed card markup](https://github.com/Mushy17/NutriTrack/blob/7612b52/index.html#L65-L83), [CSS .done rules](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L195-L202) | Verify the first entry has the done class, a struck-through title and completed styling. |
+| S1-R6 | Two-column desktop layout and one column below 700 px | [Desktop grid](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L54-L63), [Mobile breakpoint](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L226-L233) | Resize the browser viewport below 700 px. |
+| S1-R7 | Visible keyboard focus and readable system dark theme | [Focus visible](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L220-L223), [Dark-mode variables](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L236-L254) | Navigate using Tab and test operating-system dark mode. |
+| S1-R8 | Stage 1 implementation commit was pushed to GitHub | [Stage 1 implementation commit](https://github.com/Mushy17/NutriTrack/commit/7612b52) | Open the GitHub commit and verify its implementation files. |
+
 ## Stage 2: data logic
 
 Plain JavaScript, no DOM. `entries.js` contains the NutriTrack data array and the functions used to read and modify the data.
@@ -114,32 +125,16 @@ All operations are implemented without modifying the original array. Results and
 - [x] Stage 4: components rendered from data
 - [ ] Stage 5: local state and events
 - [ ] Later stages: API, server, database, authentication and Docker
-## Stage 1 checklist
 
-| ID | Requirement | Where | How to check |
+| ID | Requirement | Evidence (exact code lines) | How to check |
 |---|---|---|---|
-| S1-R1 | README: description, fields, sample data, how to run | [README.md](https://github.com/Mushy17/NutriTrack/blob/9bfdae98ca8a085e4fd442a2aaf4fb36b1041fa2/README.md#L1-L48) | Read the project description, data model, sample data and run instructions |
-| S1-R2 | AI usage section | [README.md](https://github.com/Mushy17/NutriTrack/blob/9bfdae98ca8a085e4fd442a2aaf4fb36b1041fa2/README.md#L49-L55) | Read the AI usage section |
-| S1-R3 | AI log for Stage 1 | [ai-log/etapa-01.md](https://github.com/Mushy17/NutriTrack/blob/7612b52/ai-log/etapa-01.md#L1-L37) | Read the Stage 1 AI log |
-| S1-R4 | Header, form with text field and fixed list, 3 cards with project data | [index.html](https://github.com/Mushy17/NutriTrack/blob/7612b52/index.html#L15-L133) | Open `index.html` and check the header, form and three NutriTrack entries |
-| S1-R5 | Finished card looks different | [style.css](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L195-L201) | Check the `.done` styles and the completed first card |
-| S1-R6 | 2 columns on desktop, 1 column below 700 px | [desktop layout](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L54-L63), [responsive layout](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L226-L232) | Resize the browser below 700 px and check that the layout changes to one column |
-| S1-R7 | Visible keyboard focus and readable dark theme | [keyboard focus](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L220-L222), [dark theme](https://github.com/Mushy17/NutriTrack/blob/7612b52/style.css#L236-L253) | Navigate with Tab and test the system dark theme |
-| S1-R8 | Stage 1 commit pushed to GitHub | [Stage 1 commit](https://github.com/Mushy17/NutriTrack/commit/7612b52) | Check the Stage 1 commit in the repository history |
-
-## Stage 2 checklist
-
-| ID | Requirement | Where | How to check |
-|---|---|---|---|
-| S2-R1 | JavaScript file is linked and console tests run when the page loads | [index.html](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/index.html#L299), [console tests](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L112-L157) | Open `index.html`, then open the browser console and check that the test sections are displayed |
-| S2-R2 | Data array contains at least 3 entries with unique id, name, state and fixed type | [entries.js](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L1-L33) | Check the three sample entries and their `id`, `name`, `completed` and `type` fields |
-| S2-R3 | List, count, search, add, toggle and delete functions are implemented | [entries.js](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L34-L107) | Check `listNames`, `countActive`, `searchByName`, `addEntry`, `toggleCompleted` and `deleteEntry` |
-| S2-R4 | Adding rejects an empty name and an invalid fixed type | [validation](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L60-L82), [validation tests](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L154-L157) | Open the browser console and check the error messages for an empty name and `InvalidType` |
-| S2-R5 | Adding an entry does not modify the original array | [immutable add](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L84-L95), [immutability test](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L123-L134) | Check that the new list has 4 entries while the original `entries` array still has 3 |
-| S2-R6 | README contains the Stage 2 description and the Stage 2 AI log is documented | [README.md](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/README.md#L56-L68), [ai-log/etapa-02.md](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/ai-log/etapa-02.md#L1-L36) | Read the Stage 2 documentation and AI usage log |
-| S2-R7 | Stage 2 implementation commit is pushed to GitHub | [Stage 2 commit](https://github.com/Mushy17/NutriTrack/commit/3c463b0) | Check the `Stage 2: data logic in JavaScript` commit in the repository history |
-
-
+| S2-R1 | JavaScript file is linked and console tests run on page load | [Script inclusion](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/index.html#L299), [Console tests](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L110-L157) | Open the static index.html and inspect the browser console after loading. |
+| S2-R2 | Array with at least three entries and the mandatory fields | [Three sample entries](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L1-L33) | Verify unique IDs and the name, completed, and type fields. |
+| S2-R3 | List, count, search, add, toggle and delete functions | [listNames](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L34-L36), [countActive](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L38-L40), [searchByName](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L42-L48), [addEntry](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L60-L96), [toggleCompleted](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L98-L104), [deleteEntry](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L106-L108) | Inspect the six function definitions and verify their console-test results. |
+| S2-R4 | Adding an entry rejects empty names and invalid types | [Name validation](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L71-L74), [Type validation](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L75-L78), [Console tests](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L155-L157) | Confirm the console displays validation messages for an empty name and InvalidType. |
+| S2-R5 | Adding an entry does not modify the original array | [Immutable add using spread](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L85-L96), [Original vs new list test](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/entries.js#L124-L135) | Compare the four-entry result with the unchanged original three-entry array. |
+| S2-R6 | README and Stage 2 AI log are completed | [README – Stage 2](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/README.md#L56-L68), [AI log – Stage 2](https://github.com/Mushy17/NutriTrack/blob/8cf9d2b653d4699f2c23176c07c7fa1920254aff/ai-log/etapa-02.md#L1-L36) | Review the Stage 2 explanation and AI usage log. |
+| S2-R7 | Stage 2 implementation commit was pushed to GitHub | [Stage 2 implementation commit](https://github.com/Mushy17/NutriTrack/commit/3c463b0) | Verify the implementation commit in the GitHub history. |
 
 ## Stage 3: Vite and React Project
 
@@ -177,18 +172,15 @@ The React application is located in the `frontend/` directory, while the origina
 Stage 4 will replace the JSON representation with reusable React components and introduce user interactions.
 
 
-## Stage 3 checklist
-
-| ID | Requirement | Where (permalink) | How to check |
+| ID | Requirement | Evidence (exact code lines) | How to check |
 |---|---|---|---|
-| S3-R1 | `npm run dev` starts without errors | [package.json](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/package.json) | Run `npm install` and `npm run dev` from `frontend/` |
-| S3-R2 | App name and counters are computed from data | [App.jsx - calculations](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L34-L48) | Change the entries array and verify the updated counters |
-| S3-R3 | Application uses NutriTrack sample data from README | [App.jsx - sample data](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L1-L32) | Compare the three entries with the README sample data |
-| S3-R4 | Stage 1 styles are reused in React | [App.css](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.css) | Compare the React interface with the original mockup |
-| S3-R5 | `node_modules` is ignored and production build passes | [.gitignore](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/.gitignore) | Verify ignored folders and run `npm run build` |
-| S3-R6 | README Stage 3 section and AI log are completed | [README.md](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/README.md), [ai-log/etapa-03.md](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/ai-log/etapa-03.md) | Read the Stage 3 documentation and AI log |
-| S3-R7 | Stage 3 implementation commit is published on GitHub | [Stage 3 commit](https://github.com/Mushy17/NutriTrack/commit/ad41e3565c4ef87e1ea583bd5667254d5dd70f36) | Check the commit in GitHub history |
-
+| S3-R1 | Vite development server starts with npm run dev | [package.json – Vite scripts](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/package.json#L6-L10) | From frontend/, run npm install and npm run dev. |
+| S3-R2 | NutriTrack name and dashboard counters are calculated from data | [Derived calculations](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L33-L47), [App title](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L49-L57), [Rendered counters](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L73-L92) | Modify sample data temporarily and check the dashboard calculations. |
+| S3-R3 | React app uses sample entries from README | [App.jsx – Initial entries](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.jsx#L1-L32) | Compare the array with the three README entries. |
+| S3-R4 | Stage 1 visual design is reused in the React application | [App.css – Color variables](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.css#L5-L32), [Header styles](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.css#L60-L74), [Dashboard cards](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/src/App.css#L227-L249) | Compare the React styles and NutriTrack visual identity with the static mockup. |
+| S3-R5 | node_modules and build output are ignored; production build is available | [.gitignore – Exclusions](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/.gitignore#L10-L12), [Build script](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/frontend/package.json#L7-L9) | Verify node_modules and dist are ignored and run npm run build. |
+| S3-R6 | README Stage 3 section and AI usage log are complete | [README – Stage 3](https://github.com/Mushy17/NutriTrack/blob/ad41e3565c4ef87e1ea583bd5667254d5dd70f36/README.md#L127-L157), [Completed AI log – Stage 3](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/ai-log/etapa-03.md#L1-L49) | Read the Stage 3 documentation and complete AI log; the file was empty at the implementation commit and filled later. |
+| S3-R7 | Stage 3 implementation commit is published | [Stage 3 implementation commit](https://github.com/Mushy17/NutriTrack/commit/ad41e3565c4ef87e1ea583bd5667254d5dd70f36) | Open the implementation commit on GitHub. |
 
 ## Stage 4: Components Rendered from Data
 
@@ -226,17 +218,15 @@ The following tests were completed successfully:
 Stage 5 will introduce React local state and event handling to make the entries interactive.
 
 
-## Stage 4 checklist
-
-| ID | Requirement | Where (permalink) | How to check |
+| ID | Requirement | Evidence (exact code lines) | How to check |
 |---|---|---|---|
-| S4-R1 | At least two reusable components in `src/Components/` | [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx), [EntryList.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx) | Open both component files and verify that each exports a React component |
-| S4-R2 | Entry card receives data through props | [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L27-L53) | Verify that `EntryCard` receives `entry` through props and displays its fields |
-| S4-R3 | List uses `map()` and `key={entry.id}` without React warnings | [EntryList.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L12-L22) | Open the browser console and verify that the cards render without React warnings |
-| S4-R4 | Empty list displays an explicit message | [EntryList.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L4-L10) | Temporarily set the entries array to `[]` and verify the message "No entries available." |
-| S4-R5 | Completion status changes the card appearance | [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L27-L53) | Change an entry's `completed` value and verify the card styling and status |
-| S4-R6 | README Stage 4 section and AI log are completed | [README.md](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/README.md), [ai-log/etapa-04.md](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/ai-log/etapa-04.md) | Read the Stage 4 documentation and AI usage log |
-| S4-R7 | Stage 4 implementation commit is published on GitHub | [Stage 4 commit](https://github.com/Mushy17/NutriTrack/commit/b4b19523dd40d69eb28a7197755c2cfd28fbf98f) | Check the Stage 4 implementation commit in the GitHub history |
+| S4-R1 | At least two reusable React components in src/Components/ | [EntryCard component](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L16-L20), [EntryList component](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L3-L3) | Verify both files export React components. |
+| S4-R2 | EntryCard receives and displays entry data through props | [EntryCard – Props and content](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L16-L47) | Verify that name, type, category, calories, and completion status come from entry. |
+| S4-R3 | EntryList renders entries using map() and key={entry.id} | [EntryList – map and key](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L12-L21) | Verify the map() call, stable key and browser console. |
+| S4-R4 | Empty list shows an explicit message | [EntryList – Empty state](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryList.jsx#L3-L10) | Temporarily pass an empty array and check for No entries available. |
+| S4-R5 | Completed status changes card styling | [EntryCard – Conditional class](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L22-L23), [EntryCard – Status text](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/Components/EntryCard.jsx#L42-L47), [App.css – Completed styling](https://github.com/Mushy17/NutriTrack/blob/b4b19523dd40d69eb28a7197755c2cfd28fbf98f/frontend/src/App.css#L670-L680) | Change completed in the array and check the title and status appearance. |
+| S4-R6 | Stage 4 README section and AI usage log are completed | [README – Stage 4](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/README.md#L169-L197), [AI log – Stage 4](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/ai-log/etapa-04.md#L1-L42) | Read the documented implementation and AI usage log. |
+| S4-R7 | Stage 4 implementation commit is published | [Stage 4 implementation commit](https://github.com/Mushy17/NutriTrack/commit/b4b19523dd40d69eb28a7197755c2cfd28fbf98f) | Verify the GitHub implementation commit. |
 
 ## Stage 5 – Local State and Events
 
@@ -284,20 +274,19 @@ The following functionality was tested successfully:
 - Running `npm run lint` successfully.
 - Running `npm run build` successfully.
 
+
 ## Stage 5 Checklist
 
-| ID | Requirement | Evidence | Verification |
+| ID | Requirement | Evidence (Exact Code Lines) | Verification |
 |---|---|---|---|
-| S5-R1 | The entries list is managed using React `useState` in `App`. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx) | Confirm that `INITIAL_ENTRIES` initializes the `entries` state using `useState`. |
-| S5-R2 | Entries can be toggled between active and completed, and their visual status updates. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx), [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryCard.jsx) | Click an entry checkbox and confirm that its status, styling, and active entries counter update. |
-| S5-R3 | Entries can be deleted using a button. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx), [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryCard.jsx) | Click Delete and confirm that the entry disappears and the dashboard statistics update. |
-| S5-R4 | Dashboard counters are derived from the entries state. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx) | Verify that total entries, active entries, calories consumed, and calories burned are calculated directly from `entries`. |
-| S5-R5 | State updates are immutable. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx) | Confirm that `handleToggle` uses `map()` and object spreading, while `handleDelete` uses `filter()`. |
-| S5-R6 | A light/dark theme toggle is implemented using React state and the HTML `data-theme` attribute. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx), [App.css](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.css) | Switch between light and dark modes and verify that the HTML `data-theme` attribute and interface colors change correctly. |
-| S5-R7 | The application runs without console errors, and the README and AI usage log are completed. | [README.md](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/README.md), [ai-log/etapa-05.md](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/ai-log/etapa-05.md) | Confirm that the browser console contains no errors and that `npm run lint` and `npm run build` complete successfully. |
-| S5-R8 | The Stage 5 implementation is committed and pushed to GitHub. | [Stage 5 implementation commit](https://github.com/Mushy17/NutriTrack/commit/e8970676f37e6272e77d2839c78fb0d81a334683) | Verify that the implementation commit is available on GitHub. |
+| S5-R1 | The entries list is managed using React `useState` in `App`. | [App.jsx – State initialization (L44–L45)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L44-L45) | Verify that `entries` is initialized from `INITIAL_ENTRIES` using `useState`. |
+| S5-R2 | Entries can be toggled between active and completed, with an updated visual status. | [App.jsx – handleToggle (L47–L55)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L47-L55), [EntryCard.jsx – Controlled checkbox (L28–L34)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryCard.jsx#L28-L34) | Toggle a checkbox and verify the completion status, card appearance, and active entries counter. |
+| S5-R3 | Entries can be deleted using a button. | [App.jsx – handleDelete (L57–L61)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L57-L61), [EntryCard.jsx – Delete button (L70–L77)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryCard.jsx#L70-L77), [EntryList.jsx – Empty state (L4–L10)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryList.jsx#L4-L10) | Delete an entry and verify that it disappears. Delete all entries to verify the empty state. |
+| S5-R4 | Dashboard counters are derived directly from the entries state. | [App.jsx – Derived statistics (L70–L81)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L70-L81) | Verify that total entries, active entries, calories consumed, and calories burned update automatically without separate counter states. |
+| S5-R5 | State updates are immutable. | [App.jsx – Immutable map update (L47–L55)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L47-L55), [App.jsx – Immutable filter update (L57–L61)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L57-L61) | Confirm that `map()` and object spreading are used for toggling, and `filter()` is used for deletion. |
+| S5-R6 | Light/dark theme switching uses React state and the HTML `data-theme` attribute. | [App.jsx – Theme initialization (L37–L45)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L37-L45), [App.jsx – Theme handler (L63–L68)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L63-L68), [App.jsx – Toggle button (L97–L104)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx#L97-L104), [App.css – Dark theme variables (L975)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.css#L975) | Switch themes and verify the interface colors, button label, and `data-theme` attribute in browser Developer Tools. |
+| S5-R7 | The application has no console errors, and README and AI usage log are completed. | [README.md – Stage 5 Documentation (L241)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/README.md#L241), [ai-log/etapa-05.md – AI Usage Log (L1)](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/ai-log/etapa-05.md#L1) | Confirm that no browser console errors occur and that `npm run lint` and `npm run build` complete successfully. |
+| S5-R8 | The Stage 5 implementation commit is published on GitHub. | [Stage 5 – Implementation commit](https://github.com/Mushy17/NutriTrack/commit/e8970676f37e6272e77d2839c78fb0d81a334683) | Verify that the commit is available in the GitHub repository history. |
 
-**Stage 5 implementation commit:** `e8970676f37e6272e77d2839c78fb0d81a334683`
 
-**Validation status:** All Stage 5 requirements have been implemented and tested successfully.
 
