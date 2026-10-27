@@ -1,6 +1,6 @@
 import EntryCard from "./EntryCard.jsx";
 
-export default function EntryList({ entries }) {
+export default function EntryList({ entries, onToggle, onDelete }) {
     if (entries.length === 0) {
         return (
             <p className="empty-list">
@@ -15,6 +15,8 @@ export default function EntryList({ entries }) {
                 <EntryCard
                     key={entry.id}
                     entry={entry}
+                    onToggle={onToggle}
+                    onDelete={onDelete}
                 />
             ))}
         </ul>

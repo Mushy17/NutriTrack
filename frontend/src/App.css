@@ -875,3 +875,168 @@ body {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* Stage 5 - Interactive entry cards */
+
+.entry-checkbox {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  accent-color: #21805b;
+  cursor: pointer;
+}
+
+.entry-title-row h3 label {
+  cursor: pointer;
+}
+
+.entry-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-left: auto;
+}
+
+/* Delete button */
+
+.delete-button {
+  padding: 7px 12px;
+  border: 1px solid #dca9a5;
+  border-radius: 8px;
+  background: transparent;
+  color: #b94a43;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #b94a43;
+  border-color: #b94a43;
+  color: white;
+}
+
+.delete-button:focus-visible {
+  outline: 2px solid #b94a43;
+  outline-offset: 3px;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 640px) {
+  .entry-actions {
+    gap: 8px;
+  }
+
+  .delete-button {
+    padding: 6px 9px;
+  }
+}
+
+/* Stage 5 - Dark mode */
+
+/* System dark theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg: #101914;
+    --surface: #19251f;
+    --surface-soft: #223229;
+
+    --text: #e8f2ec;
+    --text-secondary: #b8c8be;
+    --muted: #9eafa4;
+    --text-on-accent: #10251b;
+
+    --primary: #69c99a;
+    --primary-dark: #4fae80;
+    --primary-soft: #253f32;
+
+    --border: #34483b;
+
+    --meal: #9fc9f1;
+    --meal-soft: #243b50;
+
+    --activity: #f3ae7d;
+    --activity-soft: #493225;
+
+    --success: #7bd4a5;
+    --success-soft: #203b2d;
+
+    --shadow: none;
+  }
+}
+
+/* Explicit dark theme selected by the user */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #101914;
+  --surface: #19251f;
+  --surface-soft: #223229;
+
+  --text: #e8f2ec;
+  --text-secondary: #b8c8be;
+  --muted: #9eafa4;
+  --text-on-accent: #10251b;
+
+  --primary: #69c99a;
+  --primary-dark: #4fae80;
+  --primary-soft: #253f32;
+
+  --border: #34483b;
+
+  --meal: #9fc9f1;
+  --meal-soft: #243b50;
+
+  --activity: #f3ae7d;
+  --activity-soft: #493225;
+
+  --success: #7bd4a5;
+  --success-soft: #203b2d;
+
+  --shadow: none;
+}
+
+/* Stage 5 - Theme toggle button */
+
+.theme-toggle {
+  padding: 9px 14px;
+
+  background: var(--surface-soft);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+          background 0.2s ease,
+          border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 430px) {
+  .theme-toggle {
+    padding: 7px 10px;
+    font-size: 0.75rem;
+  }
+}

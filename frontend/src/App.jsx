@@ -1,6 +1,7 @@
 import EntryList from "./Components/EntryList.jsx";
+import { useState } from "react";
 
-const entries = [
+const INITIAL_ENTRIES = [
   {
     id: 1,
     name: "Greek Yogurt Breakfast",
@@ -33,7 +34,39 @@ const entries = [
   }
 ];
 
+function getInitialTheme() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+}
+
 function App() {
+  const [entries, setEntries] = useState(INITIAL_ENTRIES);
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  function handleToggle(id) {
+    setEntries((prev) =>
+        prev.map((entry) =>
+            entry.id === id
+                ? { ...entry, completed: !entry.completed }
+                : entry
+        )
+    );
+  }
+
+  function handleDelete(id) {
+    setEntries((prev) =>
+        prev.filter((entry) => entry.id !== id)
+    );
+  }
+
+  function handleThemeToggle() {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+  }
+
   const totalEntries = entries.length;
 
   const activeEntries = entries.filter(
@@ -61,6 +94,15 @@ function App() {
             </div>
 
             <div className="user-profile">
+              <button
+                  type="button"
+                  className="theme-toggle"
+                  onClick={handleThemeToggle}
+                  aria-pressed={theme === "dark"}
+              >
+                {theme === "dark" ? "Light mode" : "Dark mode"}
+              </button>
+
               <span>demo-user</span>
             </div>
           </div>
@@ -110,7 +152,11 @@ function App() {
     </span>
             </div>
 
-            <EntryList entries={entries} />
+            <EntryList
+                entries={entries}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+            />
           </section>
 
         </main>

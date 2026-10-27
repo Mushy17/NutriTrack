@@ -238,4 +238,49 @@ Stage 5 will introduce React local state and event handling to make the entries 
 | S4-R6 | README Stage 4 section and AI log are completed | [README.md](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/README.md), [ai-log/etapa-04.md](https://github.com/Mushy17/NutriTrack/blob/64645634a3036b1c2c8e386b78d591f5551f26a9/ai-log/etapa-04.md) | Read the Stage 4 documentation and AI usage log |
 | S4-R7 | Stage 4 implementation commit is published on GitHub | [Stage 4 commit](https://github.com/Mushy17/NutriTrack/commit/b4b19523dd40d69eb28a7197755c2cfd28fbf98f) | Check the Stage 4 implementation commit in the GitHub history |
 
+## Stage 5 – Local State and Events
+
+Stage 5 introduces interactive functionality using React state and event handlers.
+
+### Implemented Features
+
+- **Local state management:** Entries are stored in the `App` component using React's `useState` hook.
+- **Toggle entry status:** Users can mark entries as completed or active using controlled checkboxes.
+- **Delete entries:** Users can remove individual entries using the Delete button.
+- **Dynamic dashboard:** Total entries, active entries, calories consumed, and calories burned are recalculated automatically.
+- **Empty state:** A dedicated message appears when all entries have been deleted.
+- **Theme switching:** Users can switch between light and dark modes using a button in the application header.
+- **System theme detection:** The initial theme follows the operating system's color scheme preference.
+
+### React State and Events
+
+The application uses immutable state updates:
+
+- `map()` updates the completion status of an entry.
+- `filter()` removes an entry from the list.
+- Event handlers are passed from `App` to `EntryList` and `EntryCard` through props.
+
+Dashboard statistics are derived from the entries array rather than stored in separate state variables.
+
+### Theme Management
+
+The selected theme is managed through React state and applied using the `data-theme` attribute on the HTML element.
+
+CSS variables are used to define the appearance of the light and dark themes.
+
+Theme preferences and entries are stored only in local React state. Changes are reset when the page is refreshed.
+
+### Validation
+
+The following functionality was tested successfully:
+
+- Toggling an entry between active and completed.
+- Updating the active entries counter.
+- Deleting entries and updating dashboard statistics.
+- Displaying the empty state when no entries remain.
+- Switching between light and dark themes.
+- Updating the `data-theme` HTML attribute.
+- Checking the browser console for errors.
+- Running `npm run lint` successfully.
+- Running `npm run build` successfully.
 
