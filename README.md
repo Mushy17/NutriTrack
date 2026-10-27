@@ -284,3 +284,20 @@ The following functionality was tested successfully:
 - Running `npm run lint` successfully.
 - Running `npm run build` successfully.
 
+## Stage 5 Checklist
+
+| ID | Requirement | Evidence | Verification |
+|---|---|---|---|
+| S5-R1 | The entries list is managed using React `useState` in `App`. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx) | Confirm that `INITIAL_ENTRIES` initializes the `entries` state using `useState`. |
+| S5-R2 | Entries can be toggled between active and completed, and their visual status updates. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx), [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryCard.jsx) | Click an entry checkbox and confirm that its status, styling, and active entries counter update. |
+| S5-R3 | Entries can be deleted using a button. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx), [EntryCard.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/Components/EntryCard.jsx) | Click Delete and confirm that the entry disappears and the dashboard statistics update. |
+| S5-R4 | Dashboard counters are derived from the entries state. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx) | Verify that total entries, active entries, calories consumed, and calories burned are calculated directly from `entries`. |
+| S5-R5 | State updates are immutable. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx) | Confirm that `handleToggle` uses `map()` and object spreading, while `handleDelete` uses `filter()`. |
+| S5-R6 | A light/dark theme toggle is implemented using React state and the HTML `data-theme` attribute. | [App.jsx](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.jsx), [App.css](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/frontend/src/App.css) | Switch between light and dark modes and verify that the HTML `data-theme` attribute and interface colors change correctly. |
+| S5-R7 | The application runs without console errors, and the README and AI usage log are completed. | [README.md](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/README.md), [ai-log/etapa-05.md](https://github.com/Mushy17/NutriTrack/blob/e8970676f37e6272e77d2839c78fb0d81a334683/ai-log/etapa-05.md) | Confirm that the browser console contains no errors and that `npm run lint` and `npm run build` complete successfully. |
+| S5-R8 | The Stage 5 implementation is committed and pushed to GitHub. | [Stage 5 implementation commit](https://github.com/Mushy17/NutriTrack/commit/e8970676f37e6272e77d2839c78fb0d81a334683) | Verify that the implementation commit is available on GitHub. |
+
+**Stage 5 implementation commit:** `e8970676f37e6272e77d2839c78fb0d81a334683`
+
+**Validation status:** All Stage 5 requirements have been implemented and tested successfully.
+
