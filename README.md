@@ -289,4 +289,93 @@ The following functionality was tested successfully:
 | S5-R8 | The Stage 5 implementation commit is published on GitHub. | [Stage 5 – Implementation commit](https://github.com/Mushy17/NutriTrack/commit/e8970676f37e6272e77d2839c78fb0d81a334683) | Verify that the commit is available in the GitHub repository history. |
 
 
+## Stage 6 – Data from a Mock API
+
+Stage 6 introduces asynchronous data loading using a REST API powered by `json-server`.
+
+The application's entries are no longer hardcoded in React. Instead, they are stored in `frontend/db.json` and retrieved through HTTP requests.
+
+### Implemented Features
+
+- **Mock REST API:** Uses `json-server@0.17.4` to expose NutriTrack entries.
+- **External data source:** Five sample entries are stored in `db.json`.
+- **HTTP requests:** Uses `fetch()`, `async/await`, and response validation through `res.ok`.
+- **API service layer:** All HTTP requests are centralized in `src/api.js`.
+- **Environment configuration:** The API URL can be configured using `VITE_API_URL`.
+- **React lifecycle:** Uses `useEffect()` to fetch data when the application mounts.
+- **Loading state:** Displays `Loading entries...` while waiting for the server.
+- **Error handling:** Displays an explanatory message when the API is unavailable.
+- **Existing functionality:** Preserves entry toggling, deletion, dashboard statistics, and light/dark themes.
+
+### Running the Application
+
+The application requires two terminals.
+
+**Terminal 1 – Start the API**
+
+```bash
+cd frontend
+npm run api
+```
+
+API endpoint: `http://localhost:3001/entries`
+
+**Terminal 2 – Start React**
+
+```bash
+cd frontend
+npm run dev
+```
+
+Frontend: `http://localhost:5173`
+
+Both servers must be running for the application to load entries successfully.
+
+### Project Structure
+
+```text
+frontend/
+├── db.json
+├── .env.example
+├── package.json
+└── src/
+    ├── api.js
+    ├── App.jsx
+    ├── App.css
+    └── Components/
+        ├── EntryList.jsx
+        └── EntryCard.jsx
+```
+
+### API Configuration
+
+The API base URL is read from the `VITE_API_URL` environment variable.
+
+The `.env.example` file documents the default API address:
+
+```dotenv
+VITE_API_URL=http://localhost:3001
+```
+
+### Loading States
+
+The application handles three possible states:
+
+1. **Loading:** The request is in progress.
+2. **Success:** Entries are displayed after a successful response.
+3. **Error:** A message explains that the server could not be reached.
+
+### Validation
+
+The following tests were completed successfully:
+
+- Retrieved five entries from the `/entries` endpoint.
+- Verified the API requests in Browser Developer Tools.
+- Confirmed that responses with HTTP status `304 Not Modified` are handled successfully through browser caching.
+- Verified the error message after stopping the API server.
+- Verified the loading message using a simulated four-second delay.
+- Confirmed that entry toggling, deletion, statistics, and theme switching still work.
+
+**Note:** Entry toggling and deletion remain local to React state. Changes are not persisted to `db.json` and are reset when the page is refreshed. Server-side persistence will be introduced in Stage 7.
+
 

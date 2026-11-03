@@ -1040,3 +1040,24 @@ body {
     font-size: 0.75rem;
   }
 }
+
+/* Stage 6 - API loading and error states */
+
+.info {
+  color: var(--muted);
+  padding: 12px 0;
+}
+
+.error {
+  color: #b42318;
+  background: #fff1f0;
+  border: 1px solid #f4b4ae;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+:root[data-theme="dark"] .error {
+  color: #ffb4ab;
+  background: #3b2424;
+  border-color: #78413c;
+}

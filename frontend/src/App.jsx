@@ -1,38 +1,7 @@
+import { useEffect, useState } from "react";
 import EntryList from "./Components/EntryList.jsx";
-import { useState } from "react";
+import { fetchEntries } from "./api.js";
 
-const INITIAL_ENTRIES = [
-  {
-    id: 1,
-    name: "Greek Yogurt Breakfast",
-    completed: true,
-    type: "Meal",
-    category: "Breakfast",
-    user: "demo-user",
-    calories: 420,
-    date: "2026-10-06"
-  },
-  {
-    id: 2,
-    name: "Morning Run",
-    completed: false,
-    type: "Activity",
-    category: "Cardio",
-    user: "demo-user",
-    calories: 320,
-    date: "2026-10-06"
-  },
-  {
-    id: 3,
-    name: "Vegetable Pasta Lunch",
-    completed: false,
-    type: "Meal",
-    category: "Lunch",
-    user: "demo-user",
-    calories: 650,
-    date: "2026-10-06"
-  }
-];
 
 function getInitialTheme() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -41,8 +10,38 @@ function getInitialTheme() {
 }
 
 function App() {
-  const [entries, setEntries] = useState(INITIAL_ENTRIES);
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    let ignore = false;
+
+    async function loadEntries() {
+      try {
+        const data = await fetchEntries();
+
+        if (!ignore) {
+          setEntries(data);
+        }
+      } catch (err) {
+        if (!ignore) {
+          setError(err.message);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadEntries();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   function handleToggle(id) {
     setEntries((prev) =>
@@ -152,11 +151,27 @@ function App() {
     </span>
             </div>
 
-            <EntryList
-                entries={entries}
-                onToggle={handleToggle}
-                onDelete={handleDelete}
-            />
+            {loading && (
+                <p className="info">
+                  Loading entries...
+                </p>
+            )}
+
+            {error && (
+                <p className="error">
+                  Could not load entries: {error}.
+                  Please check that the API is running using{" "}
+                  <code>npm run api</code>.
+                </p>
+            )}
+
+            {!loading && !error && (
+                <EntryList
+                    entries={entries}
+                    onToggle={handleToggle}
+                    onDelete={handleDelete}
+                />
+            )}
           </section>
 
         </main>
