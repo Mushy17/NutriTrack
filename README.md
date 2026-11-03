@@ -378,4 +378,20 @@ The following tests were completed successfully:
 
 **Note:** Entry toggling and deletion remain local to React state. Changes are not persisted to `db.json` and are reset when the page is refreshed. Server-side persistence will be introduced in Stage 7.
 
+## Stage 6 Checklist
+
+| ID | Requirement | Evidence (Exact Code Lines) | How to Check |
+|---|---|---|---|
+| S6-R1 | The mock API starts using `npm run api` and exposes JSON data. | [package.json – API script (L6–L11)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/package.json#L6-L11), [db.json – Sample entries (L1–L54)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/db.json#L1-L54) | Run `npm run api` and open `http://localhost:3001/entries`. Verify that five entries are returned. |
+| S6-R2 | Entry data is no longer hardcoded in React. | [App.jsx – Empty initial state (L12–L16)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/App.jsx#L12-L16), [App.jsx – API data loading (L17–L43)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/App.jsx#L17-L43) | Confirm that `entries` starts as an empty array and is populated using data retrieved from the API. |
+| S6-R3 | A loading message is displayed while waiting for API data. | [App.jsx – Loading state (L14)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/App.jsx#L14), [App.jsx – Loading message (L146–L150)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/App.jsx#L146-L150) | Start the API with `--delay 4000` and refresh the page. Verify that `Loading entries...` appears before the list. |
+| S6-R4 | An explanatory error message is displayed when the API is unavailable. | [App.jsx – Error handling (L27–L34)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/App.jsx#L27-L34), [App.jsx – Error message (L151–L157)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/App.jsx#L151-L157) | Stop `npm run api` and refresh the application. Verify that an error message appears instead of a blank page. |
+| S6-R5 | HTTP requests are centralized in `api.js`, and the API URL is configurable through an environment variable. | [api.js – API configuration (L1–L2)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/api.js#L1-L2), [api.js – fetch and response validation (L4–L12)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/src/api.js#L4-L12), [.env.example – API URL (L1–L2)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/frontend/.env.example#L1-L2) | Verify that `fetch()` and `res.ok` are implemented in `api.js` and that `VITE_API_URL` is documented. |
+| S6-R6 | The README contains Stage 6 documentation, and the AI usage log is completed. | [README.md – Stage 6 (L267–L347)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/README.md#L267-L347), [ai-log/etapa-06.md – AI Usage Log (L1–L63)](https://github.com/Mushy17/NutriTrack/blob/531d2abb9489dbcaa3792686dae3d321bdd03b9c/ai-log/etapa-06.md#L1-L63) | Read the implementation documentation, setup instructions, testing results, and AI usage log. |
+| S6-R7 | The Stage 6 implementation is committed and published on GitHub. | [Stage 6 – Implementation commit](https://github.com/Mushy17/NutriTrack/commit/531d2abb9489dbcaa3792686dae3d321bdd03b9c) | Verify that the implementation commit is available in the repository history. |
+
+**Stage 6 implementation commit:** `531d2abb9489dbcaa3792686dae3d321bdd03b9c`
+
+**Validation status:** All Stage 6 requirements have been implemented and tested successfully.
+
 
