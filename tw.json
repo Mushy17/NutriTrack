@@ -1,0 +1,10 @@
+{
+  "resource": "entries",
+  "title": "name",
+  "done": "completed",
+  "sample": {
+    "type": "Meal",
+    "category": "Breakfast",
+    "calories": 420
+  }
+}

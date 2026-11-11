@@ -1,9 +1,10 @@
+
 import EntryCard from "./EntryCard.jsx";
 
 export default function EntryList({ entries, onToggle, onDelete }) {
     if (entries.length === 0) {
         return (
-            <p className="empty-list">
+            <p className="empty-list" data-testid="empty">
                 No entries available.
             </p>
         );

@@ -117,14 +117,6 @@ The implemented operations include:
 
 All operations are implemented without modifying the original array. Results and validation messages are printed in the browser console (F12).
 
-## Status
-
-- [x] Stage 1: static mockup
-- [x] Stage 2: data logic in JavaScript
-- [x] Stage 3: React initialization
-- [x] Stage 4: components rendered from data
-- [ ] Stage 5: local state and events
-- [ ] Later stages: API, server, database, authentication and Docker
 
 | ID | Requirement | Evidence (exact code lines) | How to check |
 |---|---|---|---|
@@ -393,5 +385,33 @@ The following tests were completed successfully:
 **Stage 6 implementation commit:** `531d2abb9489dbcaa3792686dae3d321bdd03b9c`
 
 **Validation status:** All Stage 6 requirements have been implemented and tested successfully.
+
+## Stage 7: Form and Validation
+
+NutriTrack now supports full CRUD operations through a mock REST API powered by JSON Server.
+
+Users can create new meal and activity entries directly from a controlled React form. The form validates required fields, limits entry names to 100 characters, and accepts only positive whole numbers for calories.
+
+All changes are persisted through the API:
+- **GET** retrieves existing entries.
+- **POST** creates and saves new entries.
+- **PATCH** updates the completion status of an entry.
+- **DELETE** permanently removes an entry.
+
+The application updates its React state only after the server confirms a successful operation. While a new entry is being saved, the submit button is disabled to prevent duplicate submissions. If saving fails, the entered values remain available and an error message is displayed.
+
+A `tw.json` configuration file and standardized `data-testid` attributes support automated evaluation.
+
+The existing NutriTrack dashboard, weekly analytics, and light/dark theme remain available.
+
+## Status
+
+- [x] Stage 1: Static HTML and CSS mockup
+- [x] Stage 2: JavaScript data model and immutable operations
+- [x] Stage 3: React application setup with Vite
+- [x] Stage 4: React components and props
+- [x] Stage 5: State management and user interactions
+- [x] Stage 6: Data fetching from a mock REST API
+- [x] Stage 7: Form and validation with persistent CRUD operations
 
 
