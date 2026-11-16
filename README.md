@@ -422,6 +422,26 @@ The existing NutriTrack dashboard, weekly analytics, and light/dark theme remain
 
 **Validation status:** Stage 7 implementation and CRUD persistence have been verified. Automated evaluation attributes are present.
 
+## Stage 8: Routing and Detail Page
+
+NutriTrack now supports client-side navigation using React Router.
+
+The application includes four routes:
+- `/` – Dashboard with nutrition statistics, weekly analytics, entry management, and the Add Entry form.
+- `/entries/:id` – Individual entry details loaded from the REST API using the ID from the URL.
+- `/about` – Information about NutriTrack and the technologies used.
+- `*` – A custom 404 page for unknown routes.
+
+Navigation uses `Link` and `NavLink`, allowing users to move between pages without a full browser reload. The shared layout uses `Outlet` to display the selected page.
+
+Entry detail pages display the name, type, category, calories, completion status, date, user, and entry ID. Invalid entry IDs display an error message and a link back to the dashboard.
+
+The application's styling has been reorganized using CSS Modules. Each major component has its own `.module.css` file, while `index.css` contains shared theme variables and global styles.
+
+The existing CRUD functionality, NutriTrack Insights dashboard, responsive design, and light/dark theme remain available.
+
+All required `data-testid` attributes from Stages 7 and 8 have been preserved or added to support automated evaluation.
+
 
 ## Status
 
@@ -432,5 +452,7 @@ The existing NutriTrack dashboard, weekly analytics, and light/dark theme remain
 - [x] Stage 5: State management and user interactions
 - [x] Stage 6: Data fetching from a mock REST API
 - [x] Stage 7: Form and validation with persistent CRUD operations
+- [x] Stage 8: Routing and detail page
+- [ ] Stage 9: Own backend with Express
 
 

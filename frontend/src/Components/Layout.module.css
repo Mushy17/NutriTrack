@@ -1,0 +1,95 @@
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brandIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #65c99a;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.brand h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: 22px;
+}
+
+.brand p {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navLink {
+    padding: 9px 16px;
+    border-radius: 9px;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.navLink:hover {
+    color: var(--text);
+    background: var(--border);
+}
+
+.active {
+    color: #246c4b;
+    background: #dcf5e8;
+}
+
+.main {
+    width: 100%;
+    flex: 1;
+}
+
+.footer {
+    padding: 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

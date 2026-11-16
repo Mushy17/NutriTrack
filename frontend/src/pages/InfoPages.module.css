@@ -1,0 +1,36 @@
+.page {
+    width: min(100% - 32px, 760px);
+    margin: 32px auto;
+    padding: 28px;
+}
+
+.page h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: var(--text);
+}
+
+.page p {
+    margin-bottom: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.back {
+    display: inline-block;
+    margin-top: 12px;
+    color: #65c99a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .page {
+        margin: 20px auto;
+        padding: 20px;
+    }
+}

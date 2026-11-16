@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import styles from "./EntryForm.module.css";
 
 const CATEGORIES = {
     Meal: ["Breakfast", "Lunch", "Dinner", "Snack"],
@@ -59,6 +59,8 @@ export default function EntryForm({ onAdd }) {
         setError("");
         setSaving(true);
 
+        const now = new Date();
+
         const newEntry = {
             name: name.trim(),
             completed: false,
@@ -67,9 +69,9 @@ export default function EntryForm({ onAdd }) {
             user: "demo-user",
             calories: Number(calories),
             date: [
-                new Date().getFullYear(),
-                String(new Date().getMonth() + 1).padStart(2, "0"),
-                String(new Date().getDate()).padStart(2, "0")
+                now.getFullYear(),
+                String(now.getMonth() + 1).padStart(2, "0"),
+                String(now.getDate()).padStart(2, "0")
             ].join("-")
         };
 
@@ -88,15 +90,15 @@ export default function EntryForm({ onAdd }) {
     }
 
     return (
-        <section className="panel nt-form-panel">
+        <section className={`panel ${styles.formPanel}`}>
             <h2>Add New Entry</h2>
 
-            <p className="nt-form-description">
+            <p className={styles.description}>
                 Track a meal or physical activity.
             </p>
 
             <form
-                className="nt-entry-form"
+                className={styles.form}
                 onSubmit={handleSubmit}
                 noValidate
                 data-testid="form"
@@ -163,7 +165,7 @@ export default function EntryForm({ onAdd }) {
 
                 {error && (
                     <p
-                        className="nt-form-error"
+                        className={styles.formError}
                         role="alert"
                         data-testid="form-error"
                     >
@@ -173,7 +175,7 @@ export default function EntryForm({ onAdd }) {
 
                 <button
                     type="submit"
-                    className="nt-add-button"
+                    className={styles.addButton}
                     disabled={saving}
                     data-testid="form-submit"
                 >

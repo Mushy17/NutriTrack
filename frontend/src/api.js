@@ -1,9 +1,6 @@
-// Centralized HTTP requests for the NutriTrack API.
-
 export const API_URL =
     import.meta.env.VITE_API_URL ?? "http://localhost:3001";
 
-// Common function for all HTTP requests.
 async function request(path, options = {}) {
     const res = await fetch(`${API_URL}${path}`, {
         ...options,
@@ -17,7 +14,7 @@ async function request(path, options = {}) {
         throw new Error(`Server error: ${res.status}`);
     }
 
-    // Handle responses without a body.
+
     return res.status === 204 ? null : res.json();
 }
 
@@ -47,4 +44,8 @@ export function deleteEntry(id) {
     return request(`/entries/${id}`, {
         method: "DELETE"
     });
+}
+
+export function fetchEntry(id) {
+    return request(`/entries/${id}`);
 }

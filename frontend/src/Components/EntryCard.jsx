@@ -1,4 +1,7 @@
 
+import { Link } from "react-router-dom";
+import styles from "./EntryCard.module.css";
+
 const TYPE_DETAILS = {
     Meal: {
         label: "Meal",
@@ -23,53 +26,68 @@ export default function EntryCard({ entry, onToggle, onDelete }) {
 
     return (
         <li
-            className={`item-card${entry.completed ? " done" : ""}`}
+            className={`${styles["item-card"]} ${
+                entry.completed ? styles.done : ""
+            }`}
             data-testid="item"
             data-id={entry.id}
         >
-            <div className="entry-main">
+            <div className={styles["entry-main"]}>
                 <input
                     id={`entry-checkbox-${entry.id}`}
-                    className="entry-checkbox"
+                    className={styles["entry-checkbox"]}
                     type="checkbox"
                     checked={entry.completed}
                     onChange={() => onToggle(entry.id)}
+                    aria-label={`Toggle ${entry.name}`}
                     data-testid="item-toggle"
                 />
 
-                <div className={`entry-symbol ${typeDetails.symbolClass}`}>
+                <div
+                    className={`${styles["entry-symbol"]} ${
+                        styles[typeDetails.symbolClass]
+                    }`}
+                >
                     {typeDetails.symbol}
                 </div>
 
-                <div className="entry-content">
-                    <div className="entry-title-row">
-                        <h3 data-testid="item-title">
-                            <label htmlFor={`entry-checkbox-${entry.id}`}>
+                <div className={styles["entry-content"]}>
+                    <div className={styles["entry-title-row"]}>
+                        <h3>
+                            <Link
+                                to={`/entries/${entry.id}`}
+                                className={styles["entry-title-link"]}
+                                data-testid="item-link"
+                            >
                                 {entry.name}
-                            </label>
+                            </Link>
                         </h3>
 
-                        <span className={`badge ${typeDetails.badgeClass}`}>
+                        <span
+                            className={`${styles.badge} ${
+                                styles[typeDetails.badgeClass]
+                            }`}
+                        >
                             {typeDetails.label}
                         </span>
                     </div>
 
-                    <p className="item-details">
+                    <p className={styles["item-details"]}>
                         {entry.category} · {caloriesText}
                     </p>
                 </div>
             </div>
 
-            <div className="entry-actions">
+            <div className={styles["entry-actions"]}>
                 <div
-                    className={`entry-status ${
+                    className={`${styles["entry-status"]} ${
                         entry.completed
-                            ? "completed-status"
-                            : "active-status"
+                            ? styles["completed-status"]
+                            : styles["active-status"]
                     }`}
                 >
                     <span
-                        className="status-dot"
+                        className={styles["status-dot"]}
                         aria-hidden="true"
                     ></span>
 
@@ -78,7 +96,7 @@ export default function EntryCard({ entry, onToggle, onDelete }) {
 
                 <button
                     type="button"
-                    className="delete-button"
+                    className={styles["delete-button"]}
                     onClick={() => onDelete(entry.id)}
                     aria-label={`Delete ${entry.name}`}
                     data-testid="item-delete"

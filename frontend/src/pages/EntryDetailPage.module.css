@@ -1,0 +1,60 @@
+.detail {
+    max-width: 700px;
+    margin: 32px auto;
+    padding: 28px;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #65c99a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+.detail h2 {
+    margin-bottom: 24px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    margin: 0;
+}
+
+.fields dt {
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.fields dd {
+    margin: 0;
+    color: var(--text);
+}
+
+@media (max-width: 600px) {
+    .detail {
+        margin: 20px 16px;
+        padding: 20px;
+    }
+
+    .fields {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .fields dd {
+        margin-bottom: 12px;
+    }
+}

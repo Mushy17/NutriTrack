@@ -1,17 +1,17 @@
-
 import EntryCard from "./EntryCard.jsx";
+import styles from "./EntryList.module.css";
 
 export default function EntryList({ entries, onToggle, onDelete }) {
     if (entries.length === 0) {
         return (
-            <p className="empty-list" data-testid="empty">
+            <p className={styles.empty} data-testid="empty">
                 No entries available.
             </p>
         );
     }
 
     return (
-        <ul className="item-list">
+        <ul className={styles.list}>
             {entries.map((entry) => (
                 <EntryCard
                     key={entry.id}
