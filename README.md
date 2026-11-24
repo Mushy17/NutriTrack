@@ -459,6 +459,74 @@ All required `data-testid` attributes from Stages 7 and 8 have been preserved or
 **Stage 8 implementation commit:** `f9429b5f89010ed9a0ce44cbe6538af0a07a8bff`
 
 
+## Stage 9: Own Backend with Node.js and Express
+
+NutriTrack now uses a custom REST API built with Node.js and Express, replacing the previous json-server implementation.
+
+### Backend Features
+
+- Express 5 server running on port 3001.
+- Five REST operations: GET all entries, GET entry by ID, POST, PATCH, and DELETE.
+- Server-side validation for entry data.
+- Correct HTTP status codes: 200, 201, 204, 400, 404, and 500.
+- Centralized error handling with JSON error messages.
+- CORS configuration for communication with the React frontend.
+- Health check endpoint at `/health`.
+- In-memory data storage, which resets when the backend restarts.
+
+### Project Structure
+
+- `backend/src/server.js` - Starts the Express server.
+- `backend/src/app.js` - Configures middleware, routes, CORS, and error handling.
+- `backend/src/routes/entries.js` - Implements the five REST operations.
+- `backend/src/validation.js` - Validates entry data and IDs.
+- `frontend/src/api.js` - Communicates with the backend and processes API errors.
+
+### How to Run
+
+Backend (Terminal 1):
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+Frontend (Terminal 2):
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend: http://localhost:5173
+
+Backend API: http://localhost:3001
+
+Health endpoint: http://localhost:3001/health
+
+### Testing
+
+The API was tested independently using PowerShell HTTP requests.
+
+Verified operations:
+- GET `/entries` - HTTP 200
+- GET `/entries/:id` - HTTP 200
+- POST `/entries` - HTTP 201
+- PATCH `/entries/:id` - HTTP 200
+- DELETE `/entries/:id` - HTTP 204
+- POST with invalid data - HTTP 400
+- GET with nonexistent ID - HTTP 404
+
+The React application was also tested for adding, updating, deleting, refreshing, and viewing entry details.
+
+The frontend no longer requires json-server or db.json.
+
+Data is temporarily stored in server memory. Database persistence will be implemented in Stage 10 using MariaDB.
+
+
+
 
 ## Status
 
@@ -470,6 +538,7 @@ All required `data-testid` attributes from Stages 7 and 8 have been preserved or
 - [x] Stage 6: Data fetching from a mock REST API
 - [x] Stage 7: Form and validation with persistent CRUD operations
 - [x] Stage 8: Routing and detail page
-- [ ] Stage 9: Own backend with Express
+- [x] Stage 9: Own backend with Express
+- [ ] Stage 10: MariaDB and full CRUD
 
 

@@ -11,7 +11,8 @@ async function request(path, options = {}) {
     });
 
     if (!res.ok) {
-        throw new Error(`Server error: ${res.status}`);
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Server error: ${res.status}`);
     }
 
 
