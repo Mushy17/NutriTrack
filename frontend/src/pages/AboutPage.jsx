@@ -18,8 +18,8 @@ export default function AboutPage() {
 
             <p>
                 The project is developed for the Web Technologies
-                course using React, Vite, React Router, and a mock
-                REST API powered by JSON Server.
+                course using React, Vite, React Router, and a custom
+                REST API built with Node.js and Express.
             </p>
 
             <Link to="/" className={styles.back}>

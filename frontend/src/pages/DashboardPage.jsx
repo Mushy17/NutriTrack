@@ -136,19 +136,23 @@ export default function DashboardPage() {
         .filter((entry) => entry.type === "Activity")
         .reduce((sum, entry) => sum + Number(entry.calories), 0);
 
-    const endOfPeriod = new Date();
-    endOfPeriod.setHours(12, 0, 0, 0);
-    endOfPeriod.setDate(
-        endOfPeriod.getDate() + weekOffset * 7
+    const startOfWeek = new Date();
+    startOfWeek.setHours(12, 0, 0, 0);
+
+    const dayOfWeek = startOfWeek.getDay();
+    const daysSinceMonday = (dayOfWeek + 6) % 7;
+
+    startOfWeek.setDate(
+        startOfWeek.getDate() - daysSinceMonday + weekOffset * 7
     );
+
 
     const weeklyData = Array.from(
         { length: 7 },
         (_, index) => {
-            const dayDate = new Date(endOfPeriod);
-            dayDate.setDate(
-                dayDate.getDate() - (6 - index)
-            );
+            const dayDate = new Date(startOfWeek);
+            dayDate.setDate(startOfWeek.getDate() + index);
+
 
             const date = formatLocalDate(dayDate);
 

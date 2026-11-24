@@ -25,6 +25,10 @@ export default function Layout() {
                             Dashboard
                         </NavLink>
 
+                        <NavLink to="/how-to-use" className={navClass}>
+                            How to Use
+                        </NavLink>
+
                         <NavLink to="/about" className={navClass}>
                             About
                         </NavLink>

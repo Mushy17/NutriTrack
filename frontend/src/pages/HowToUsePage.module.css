@@ -1,0 +1,127 @@
+
+.page {
+    max-width: 860px;
+    margin: 32px auto;
+    padding: 36px;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    color: #65c99a;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.header h2 {
+    margin: 0 0 12px;
+    color: var(--text);
+    font-size: 28px;
+}
+
+.header p {
+    max-width: 600px;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.steps {
+    display: grid;
+    gap: 16px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+}
+
+.number {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(101, 201, 154, 0.14);
+    color: #65c99a;
+    font-weight: 800;
+}
+
+.step h3 {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 16px;
+}
+
+.step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer {
+    margin-top: 28px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-align: center;
+}
+
+.footer h3 {
+    margin: 0 0 10px;
+    color: var(--text);
+}
+
+.footer p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: #65c99a;
+    color: #102019;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #7fdbaf;
+}
+
+@media (max-width: 640px) {
+    .page {
+        margin: 20px 12px;
+        padding: 22px;
+    }
+
+    .header h2 {
+        font-size: 23px;
+    }
+
+    .step {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .number {
+        width: 36px;
+        height: 36px;
+    }
+}

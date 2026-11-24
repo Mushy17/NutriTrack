@@ -4,6 +4,7 @@ import DashboardPage from "./pages/DashboardPage.jsx";
 import EntryDetailPage from "./pages/EntryDetailPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
+import HowToUsePage from "./pages/HowToUsePage.jsx";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
           <Route path="/" element={<DashboardPage />} />
           <Route path="/entries/:id" element={<EntryDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/how-to-use" element={<HowToUsePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
