@@ -526,6 +526,22 @@ The frontend no longer requires json-server or db.json.
 Data is temporarily stored in server memory. Database persistence will be implemented in Stage 10 using MariaDB.
 
 
+## Stage 9 Checklist
+
+| ID | Requirement | Where (permalink) | How to check |
+|---|---|---|---|
+| S9-R1 | The Express backend starts on port 3001 using npm start or npm run dev. | [Backend scripts](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/package.json#L5-L9), [server.js](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/server.js#L1-L7) | Run npm ci and npm start in backend/, then open http://localhost:3001/health. |
+| S9-R2 | All five REST routes work with the correct HTTP status codes. | [GET routes](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/routes/entries.js#L56-L64), [POST route](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/routes/entries.js#L66-L77), [PATCH route](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/routes/entries.js#L78-L93), [DELETE route](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/routes/entries.js#L95-L101) | Test GET, POST, GET by ID, PATCH and DELETE using PowerShell HTTP requests. Verify 200, 201 and 204 responses. |
+| S9-R3 | Invalid data returns HTTP 400 with a JSON error message. | [Server-side validation](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/validation.js#L13-L85), [POST error response](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/routes/entries.js#L66-L71), [ID validation](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/routes/entries.js#L39-L54) | Send POST requests with an empty object or an empty name. Verify HTTP 400 and an error property in the JSON response. |
+| S9-R4 | React works with Express, and json-server has been removed. | [Frontend package.json](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/frontend/package.json#L5-L27), [API client](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/frontend/src/api.js#L1-L50) | Run only the Express backend and React frontend. Test adding, toggling, deleting and refreshing entries. Verify that frontend/db.json and json-server are absent. |
+| S9-R5 | The backend supports CORS for the frontend origin. | [CORS middleware](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/backend/src/app.js#L1-L11) | Open http://localhost:5173 and verify that API requests succeed without CORS errors in the browser console. |
+| S9-R6 | README documents Stage 9 and the AI usage log is complete. | [README Stage 9](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/README.md#L462-L526), [Stage 9 AI log](https://github.com/Mushy17/NutriTrack/blob/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b/ai-log/etapa-09.md#L1-L113) | Read the backend architecture, setup instructions, testing section, conversations and reflection. |
+| S9-R7 | The Stage 9 implementation commit is published on GitHub. | [Stage 9 implementation commit](https://github.com/Mushy17/NutriTrack/commit/42b4f5cc711eae6b5f583292efe25aadf6ed5a0b) | Open the commit and verify the backend files, frontend changes and documentation. |
+
+**Stage 9 implementation commit:** `42b4f5cc711eae6b5f583292efe25aadf6ed5a0b`
+
+
+
 
 
 ## Status
